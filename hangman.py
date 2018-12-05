@@ -1,7 +1,10 @@
 import random
+from img import *
 
 with open('sowpods.txt', 'r') as file:
     words_base = file.read().split('\n')
+
+images = {6:a, 5:b, 4:c, 3:d, 2:e, 1:f, 0:g}
 
 counter = 6
 
@@ -12,6 +15,7 @@ def guessing():
     printek = '\n'
     for i in field:
         printek += i + ' '
+    print(images[counter])
     print("\nYou have", counter, "chances left.")
     print(printek)
     letter = input("\nGuess the letter: ")
@@ -38,4 +42,5 @@ while word != field and counter > 0:
 if word == field:
     print("Congrats, You won! The missed word was:", x)
 else:
+    print(images[counter])
     print("\nSorry, You lose. The missed word was:", x)
